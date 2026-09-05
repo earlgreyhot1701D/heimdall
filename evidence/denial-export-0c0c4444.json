@@ -1,0 +1,144 @@
+{
+  "id": "0c0c4444-4ae8-467a-889a-31200478ffe8",
+  "parent_request_id": null,
+  "timestamp": "2026-09-05T19:56:18.661479974Z",
+  "object": "chat_completion",
+  "provider": "openai",
+  "model": "gpt-6-astra",
+  "number_of_retries": 0,
+  "fallback_index": 0,
+  "selected_key_id": "",
+  "selected_key_name": "",
+  "virtual_key_id": "d7afb265-1db1-4c8c-b4fc-db61cef460a2",
+  "virtual_key_name": "reporter",
+  "routing_rule_id": null,
+  "routing_rule_name": null,
+  "selected_prompt_name": null,
+  "selected_prompt_version": null,
+  "selected_prompt_id": null,
+  "user_id": null,
+  "user_name": null,
+  "team_id": null,
+  "team_name": null,
+  "customer_id": null,
+  "customer_name": null,
+  "business_unit_id": null,
+  "business_unit_name": null,
+  "user_agent": "curl/8.18.0",
+  "app": "Other",
+  "latency": 0.496509,
+  "upstream_latency": 0,
+  "overhead_latency": 0.496509,
+  "status": "error",
+  "stream": false,
+  "content_summary": "hello Model 'gpt-6-astra' is not allowed for this virtual key",
+  "raw_request": "",
+  "raw_response": "",
+  "routing_engine_logs": "[1788638178661] [governance] - Skipping load balancing for model gpt-6-astra: provider openai already set\n",
+  "is_large_payload_request": false,
+  "is_large_payload_response": false,
+  "content_hidden": false,
+  "created_at": "2026-09-05T19:56:18.661479974Z",
+  "input_history": [
+    {
+      "role": "user",
+      "content": "hello"
+    }
+  ],
+  "params": {},
+  "error_details": {
+    "type": "model_blocked",
+    "is_bifrost_error": false,
+    "status_code": 403,
+    "error": {
+      "message": "Model 'gpt-6-astra' is not allowed for this virtual key"
+    },
+    "extra_fields": {
+      "routing_info": {},
+      "provider": "openai",
+      "original_model_requested": "gpt-6-astra",
+      "resolved_model_used": "gpt-6-astra",
+      "request_type": "chat_completion"
+    }
+  },
+  "overhead_breakdown": [
+    {
+      "name": "plugin.telemetry",
+      "kind": "plugin",
+      "duration_us": 39.13
+    },
+    {
+      "name": "plugin.prompts",
+      "kind": "plugin",
+      "duration_us": 4.168
+    },
+    {
+      "name": "plugin.logging",
+      "kind": "plugin",
+      "duration_us": 32.825
+    },
+    {
+      "name": "plugin.governance",
+      "kind": "plugin",
+      "duration_us": 141.562
+    },
+    {
+      "name": "plugin.compat",
+      "kind": "plugin",
+      "duration_us": 1.249
+    },
+    {
+      "name": "request-unmarshal",
+      "kind": "internal",
+      "duration_us": 74.866
+    },
+    {
+      "name": "transport-context",
+      "kind": "internal",
+      "duration_us": 18.4
+    },
+    {
+      "name": "handle-setup",
+      "kind": "internal",
+      "duration_us": 12.189
+    },
+    {
+      "name": "plugin.routing",
+      "kind": "plugin",
+      "duration_us": 9.23
+    },
+    {
+      "name": "plugin.model-catalog-resolver",
+      "kind": "plugin",
+      "duration_us": 0.585
+    },
+    {
+      "name": "pipeline-pre",
+      "kind": "internal",
+      "duration_us": 4.21
+    },
+    {
+      "name": "transport-response-headers",
+      "kind": "internal",
+      "duration_us": 2.706
+    },
+    {
+      "name": "scheduling",
+      "kind": "scheduling",
+      "duration_us": 155.38899999999995
+    }
+  ],
+  "virtual_key": {
+    "id": "d7afb265-1db1-4c8c-b4fc-db61cef460a2",
+    "name": "reporter",
+    "description": "Reporter role. Calendar plus minute orders and motion decisions. Routine and standard tiers.",
+    "is_active": true,
+    "provider_configs": null,
+    "mcp_configs": null,
+    "calendar_aligned": false,
+    "config_hash": "",
+    "created_at": "0001-01-01T00:00:00Z",
+    "updated_at": "0001-01-01T00:00:00Z",
+    "value": ""
+  }
+}

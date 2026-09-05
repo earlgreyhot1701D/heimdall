@@ -1,0 +1,11 @@
+.env
+.env.local
+*.key
+*.pem
+secrets/
+config/config.local.json
+
+# Scratch
+.DS_Store
+*.tmp
+node_modules/

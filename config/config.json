@@ -1,0 +1,79 @@
+{
+  "_comment": "Bifrost config skeleton for Heimdall. Placeholders only, no real keys. During the live run the actual method used (this file OR the web UI) is recorded in RUN_REPORT.md at Checkpoint 3. Model names here mirror .env; they are the only place outside .env that names a model because this is Bifrost's allowlist config, not a harness script. Roles run narrowest to widest by FUNCTION, not seniority: interpreter, reporter, clerk. Model tiers are routine/standard/restricted, named for ACCESS LEVEL, not cost.",
+
+  "providers": {
+    "openai": {
+      "keys": [
+        {
+          "_comment": "One throwaway provider key with a provider-side spend cap. Injected from OPENAI_API_KEY at load time. Never commit the real value.",
+          "value": "env.OPENAI_API_KEY",
+          "models": [
+            "gpt-4o-mini",
+            "gpt-4o",
+            "gpt-4.1"
+          ]
+        }
+      ]
+    }
+  },
+
+  "governance": {
+    "virtual_keys": [
+      {
+        "name": "interpreter",
+        "_comment": "NARROWEST role. Routine tier only. Budget deliberately tiny so Block 5 can exhaust it in a few calls.",
+        "value": "env.VK_INTERPRETER",
+        "provider_configs": [
+          {
+            "provider": "openai",
+            "allowed_models": ["gpt-4o-mini"]
+          }
+        ],
+        "budget": {
+          "max_limit": 0.05,
+          "reset_duration": "1d"
+        }
+      },
+      {
+        "name": "reporter",
+        "_comment": "MIDDLE role. Routine + standard tiers.",
+        "value": "env.VK_REPORTER",
+        "provider_configs": [
+          {
+            "provider": "openai",
+            "allowed_models": ["gpt-4o-mini", "gpt-4o"]
+          }
+        ],
+        "budget": {
+          "max_limit": 1.00,
+          "reset_duration": "1d"
+        }
+      },
+      {
+        "name": "clerk",
+        "_comment": "WIDEST role. All three models. Clerk audits the case live; if the clerk cannot see something, court stops.",
+        "value": "env.VK_CLERK",
+        "provider_configs": [
+          {
+            "provider": "openai",
+            "allowed_models": ["gpt-4o-mini", "gpt-4o", "gpt-4.1"]
+          }
+        ],
+        "budget": {
+          "max_limit": 5.00,
+          "reset_duration": "1d"
+        }
+      }
+    ]
+  },
+
+  "_stubs": {
+    "_comment": "STUB list from the PRD. Named here so the article can say plainly what was NOT built. None of these are implemented this pass.",
+    "key_revocation_mid_run": "STUB: would revoke a virtual key mid-run and confirm calls stop. Only if Block 5 finishes early.",
+    "teams_and_customers": "STUB: would add a department-level budget layer above the individual badges.",
+    "sso_oidc": "STUB: would wire an OIDC identity provider so badges map to real identities.",
+    "rate_limits": "STUB: would set token_max_limit and request_max_limit per virtual key and test throttling.",
+    "multi_provider_failover": "STUB: would add a second provider and test failover when the first is unavailable.",
+    "second_provider": "STUB: no second provider is configured. OpenAI only this pass."
+  }
+}
