@@ -4,6 +4,8 @@ A small, reproducible test of role-based access control at an AI gateway.
 
 Heimdall stands up [Bifrost](https://github.com/maximhq/bifrost) locally, issues three virtual keys scoped to different models, then tries every key against every model and records what got through. Bifrost is the Norse rainbow bridge; Heimdall is the watchman who decides who crosses it. This repo is the watchman: the evidence base for [a dev.to article](https://dev.to/earlgreyhot1701d/gating-access-with-bifrost-nine-calls-three-refusals-one-trap-46h4) on whether an AI gateway's access controls actually hold. One operator, one setup, one honest report.
 
+*The article is sponsored by the Bifrost team at Maxim AI. The test, the results, and the conclusions are mine.*
+
 ## What happened
 
 Three roles, scoped narrowest to widest by function. Nine calls, each role against each model. Every claim below traces to a line in [`raw_output.log`](raw_output.log); the plain-English record is in [`RUN_REPORT.md`](RUN_REPORT.md).
