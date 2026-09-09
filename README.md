@@ -2,7 +2,7 @@
 
 A small, reproducible test of role-based access control at an AI gateway.
 
-Heimdall stands up [Bifrost](https://github.com/maximhq/bifrost) locally, issues three virtual keys scoped to different models, then tries every key against every model and records what got through. Bifrost is the Norse rainbow bridge; Heimdall is the watchman who decides who crosses it. This repo is the watchman: the evidence base for a dev.to article on whether an AI gateway's access controls actually hold. One operator, one setup, one honest report.
+Heimdall stands up [Bifrost](https://github.com/maximhq/bifrost) locally, issues three virtual keys scoped to different models, then tries every key against every model and records what got through. Bifrost is the Norse rainbow bridge; Heimdall is the watchman who decides who crosses it. This repo is the watchman: the evidence base for [a dev.to article](https://dev.to/earlgreyhot1701d/gating-access-with-bifrost-nine-calls-three-refusals-one-trap-46h4) on whether an AI gateway's access controls actually hold. One operator, one setup, one honest report.
 
 ## What happened
 
@@ -102,9 +102,9 @@ Machine-readable: [`evidence/denial-export-0c0c4444.json`](evidence/denial-expor
 
 - Bifrost: [github.com/maximhq/bifrost](https://github.com/maximhq/bifrost)
 - Bifrost docs: [docs.getbifrost.ai/overview](https://docs.getbifrost.ai/overview)
-- Article: (linked here once published)
+- Article: [Gating Access with Bifrost: Nine Calls, Three Refusals, One Trap](https://dev.to/earlgreyhot1701d/gating-access-with-bifrost-nine-calls-three-refusals-one-trap-46h4)
 
-This repo is the evidence base for a dev.to article sponsored by the Bifrost team at Maxim AI. The published post carries its sponsorship disclosure at the top. The author retained editorial control over conclusions, including limitations; the sponsor reviewed for factual accuracy and interlinking only.
+This repo is the evidence base for a dev.to article sponsored by the Bifrost team at Maxim AI. The published post carries its sponsorship disclosure in its opening paragraphs. The author retained editorial control over conclusions, including limitations; the sponsor reviewed for factual accuracy and interlinking only.
 
 ---
 
